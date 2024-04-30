@@ -1,12 +1,15 @@
 package calculator;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class App {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-
         boolean loopingCheck = true;
+        ArrayList<Integer> answerList = new ArrayList<>(10);
+        int count = 0;  //answer 갯수 확인용
+
         while(loopingCheck) {
             System.out.println("type first num");
             int num1 = sc.nextInt();
@@ -14,13 +17,13 @@ public class App {
             int num2 = sc.nextInt();
             // Scanner 를 사용하여 양의 정수를 입력 받고 적합한 타입의 변수에 저장
 
-            //        System.out.println("num1, num2 = " + num1 + " , " + num2);
             System.out.println("typ in operator");
             char operator = sc.next().charAt(0);
             int result = 0;
             // 다음 입력값을 받기 위해 사용
             String removingEmptySpace = sc.nextLine();
 
+            // 사칙연산에 따른 연산
             if (operator == '+') {
                 result = num1 + num2;
             } else if (operator == '-') {
@@ -35,7 +38,14 @@ public class App {
                     result = num1 / num2;
                 }
             }
+
             System.out.println("결과: " + num1 + " " + operator + " " + num2 + " = " + result);
+            // answer을 리스트에 저장 및 확인
+            answerList.add(result);
+            count += 1;
+            System.out.println(answerList.toString());
+
+            // 루프를 종료할지 선택
             System.out.println("continue? (type \"exit\" to quit)");
             String continueQuit = sc.nextLine();
             if (continueQuit.equals("exit")) {
