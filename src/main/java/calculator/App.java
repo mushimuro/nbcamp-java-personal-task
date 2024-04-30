@@ -41,7 +41,12 @@ public class App {
 
             System.out.println("결과: " + num1 + " " + operator + " " + num2 + " = " + result);
             // answer을 리스트에 저장 및 확인
-            answerList.add(result);
+            if(count == 10){
+                answerList.remove(0);
+                answerList.add(result);
+            }else{
+                answerList.add(result);
+            }
             count += 1;
             System.out.println(answerList);
 
