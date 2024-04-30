@@ -41,18 +41,29 @@ public class App {
             }
 
             System.out.println("결과: " + num1 + " " + operator + " " + num2 + " = " + result);
+
             // answer을 리스트에 저장 및 확인
             answerList.add(result);
 //            count += 1;
 
-            System.out.println(answerList);
+//            System.out.println(answerList);
+
             // 첫번째값 삭제할지 선택
             System.out.println("가장 먼저 저장된 연산 결과를 삭제하시겠습니까? (remove 입력 시 삭제)");
             String removeFirst = sc.nextLine();
             if (removeFirst.equals("remove")) {
                 answerList.remove(0);
                 System.out.println("first answer removed");
-                System.out.println(answerList);
+//                System.out.println(answerList);
+            }
+
+            // answerList 프린트할지 선택
+            System.out.println("저장된 연산결과를 조회하시겠습니까? (inquiry 입력 시 조회)");
+            String inquiry = sc.nextLine();
+            if (inquiry.equals("inquiry")) {
+                for(Integer answerData : answerList) {
+                    System.out.println(answerData);
+                }
             }
 
             // 루프를 종료할지 선택
