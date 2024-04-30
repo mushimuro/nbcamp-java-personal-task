@@ -43,7 +43,7 @@ public class App {
             // answer을 리스트에 저장 및 확인
             answerList.add(result);
             count += 1;
-            System.out.println(answerList.toString());
+            System.out.println(answerList);
 
             // 루프를 종료할지 선택
             System.out.println("continue? (type \"exit\" to quit)");
