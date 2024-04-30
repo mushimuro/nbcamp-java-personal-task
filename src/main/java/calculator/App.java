@@ -7,8 +7,8 @@ public class App {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         boolean loopingCheck = true;
-        ArrayList<Integer> answerList = new ArrayList<>(10);
-        int count = 0;  //answer 갯수 확인용
+        ArrayList<Integer> answerList = new ArrayList<>();
+//        int count = 0;  //answer 갯수 확인용
 
         while(loopingCheck) {
             System.out.println("type first num");
@@ -31,9 +31,10 @@ public class App {
             } else if (operator == '*') {
                 result = num1 * num2;
             } else if (operator == '/') {
+                // 0 으로 나눌시 값 다시 입력 받기
                 if (num2 == 0) {
                     System.out.println("나눗셈 연산에서 분모(두번째 정수)에 0이 입력될 수 없습니다.");
-                    result = -1;
+                    continue;
                 } else {
                     result = num1 / num2;
                 }
@@ -41,14 +42,18 @@ public class App {
 
             System.out.println("결과: " + num1 + " " + operator + " " + num2 + " = " + result);
             // answer을 리스트에 저장 및 확인
-            if(count == 10){
-                answerList.remove(0);
-                answerList.add(result);
-            }else{
-                answerList.add(result);
-            }
-            count += 1;
+            answerList.add(result);
+//            count += 1;
+
             System.out.println(answerList);
+            // 첫번째값 삭제할지 선택
+            System.out.println("가장 먼저 저장된 연산 결과를 삭제하시겠습니까? (remove 입력 시 삭제)");
+            String removeFirst = sc.nextLine();
+            if (removeFirst.equals("remove")) {
+                answerList.remove(0);
+                System.out.println("first answer removed");
+                System.out.println(answerList);
+            }
 
             // 루프를 종료할지 선택
             System.out.println("continue? (type \"exit\" to quit)");
