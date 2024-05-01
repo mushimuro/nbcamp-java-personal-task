@@ -1,7 +1,6 @@
 package calculator;
 
 import java.util.ArrayList;
-import java.util.regex.Pattern;
 import java.util.Scanner;
 
 public class Calculator {
@@ -12,7 +11,7 @@ public class Calculator {
     public Calculator() {
     }
 
-    public Integer calculate(int firstNum, int secondNum, char operatorUsing) throws Exception{
+    public void calculate(int firstNum, int secondNum, char operatorUsing) throws Exception{
         try {
             if (operatorUsing == '+') {
                 result = firstNum + secondNum;
@@ -35,7 +34,6 @@ public class Calculator {
         } catch(ArithmeticException e){
             System.out.println(e.getMessage());
         }
-        return result;
     }
 
     // 첫번째값 삭제할지 선택

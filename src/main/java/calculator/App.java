@@ -9,8 +9,6 @@ public class App {
         Scanner sc = new Scanner(System.in);
         boolean loopingCheck = true;
 
-        ArrayList<Integer> answerList = new ArrayList<>();
-
         while(loopingCheck) {
             System.out.println("type first num");
             String num1 = sc.nextLine();
