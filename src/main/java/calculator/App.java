@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class App {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception{
         Scanner sc = new Scanner(System.in);
         boolean loopingCheck = true;
         ArrayList<Integer> answerList = new ArrayList<>();
@@ -17,34 +17,33 @@ public class App {
             int num2 = sc.nextInt();
             // Scanner 를 사용하여 양의 정수를 입력 받고 적합한 타입의 변수에 저장
 
-            System.out.println("typ in operator");
+            System.out.println("type in operator");
             char operator = sc.next().charAt(0);
             int result = 0;
             // 다음 입력값을 받기 위해 사용
             String removingEmptySpace = sc.nextLine();
 
             // 사칙연산에 따른 연산
-            if (operator == '+') {
-                result = num1 + num2;
-            } else if (operator == '-') {
-                result = num1 - num2;
-            } else if (operator == '*') {
-                result = num1 * num2;
-            } else if (operator == '/') {
-                // 0 으로 나눌시 값 다시 입력 받기
-                if (num2 == 0) {
-                    System.out.println("나눗셈 연산에서 분모(두번째 정수)에 0이 입력될 수 없습니다.");
-                    continue;
-                } else {
-                    result = num1 / num2;
+            try {
+                if (operator == '+') {
+                    result = num1 + num2;
+                } else if (operator == '-') {
+                    result = num1 - num2;
+                } else if (operator == '*') {
+                    result = num1 * num2;
+                } else if (operator == '/') {
+                    // 0 으로 나눌시 예외 처리
+                    if (num2 == 0) {
+                        throw new Exception("나눗셈 연산에서 분모(두번째 정수)에 0이 입력될 수 없습니다.");
+                    } else {
+                        result = num1 / num2;
+                    }
                 }
+                System.out.println("결과: " + num1 + " " + operator + " " + num2 + " = " + result);
+                answerList.add(result);
+            } catch(Exception e){
+                System.out.println(e.getMessage());
             }
-
-            System.out.println("결과: " + num1 + " " + operator + " " + num2 + " = " + result);
-
-            // answer을 리스트에 저장 및 확인
-            answerList.add(result);
-//            count += 1;
 
 //            System.out.println(answerList);
 
