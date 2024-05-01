@@ -1,37 +1,66 @@
 package calculator;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class App {
 
     public static void main(String[] args) throws Exception{
-        Calculator calculator = new Calculator();
+        ArithmeticCalculator arithmeticCalc = new ArithmeticCalculator(new ArrayList<>());
+        CircleCalculator circleCalc = new CircleCalculator(new ArrayList<>());
         Scanner sc = new Scanner(System.in);
-        boolean loopingCheck = true;
+//        boolean loopingCheck = true;
 
-        while(loopingCheck) {
+        do {
             System.out.println("Calculation type : \"basic\" or \"circle\"");
-            String chooseCalc = sc.nextLine();
+            String chooseCalc = sc.next();
 
+            // arithmetic calc
             if (chooseCalc.equals("basic")) {
-                calculator.calculate();
-                // 첫번째 결과 삭제
-                calculator.removeBasicFirstAnswer();
-                // 전체 결과 확인
-                calculator.showResults();
-            } else if (chooseCalc.equals("circle")) {
-                calculator.calculateCircleArea();
-                calculator.removeCircleFirstAnswer();
-                calculator.showCircleAreaResults();
+                System.out.println("enter first number: ");
+                int num1 = sc.nextInt();
+                System.out.println("enter second number: ");
+                int num2 = sc.nextInt();
+                System.out.println("enter operator: ");
+                char operator = sc.next().charAt(0);
+
+                double result = arithmeticCalc.calculate(num1, num2, operator);
+                arithmeticCalc.getResults().add(result);
+
+                System.out.println("enter \"remove\" to delete first result");
+                if (sc.next().equals("remove")) {
+                    arithmeticCalc.getResults().remove(0);
+                    System.out.println("first element removed!");
+                }
+
+                System.out.println("enter \"inquiry\" to view all results");
+                if (sc.next().equals("inquiry")) {
+                    arithmeticCalc.showResult();
+                }
+            }
+            // circle area calc
+            else if (chooseCalc.equals("circle")) {
+                System.out.println("enter radius");
+                int radius = sc.nextInt();
+
+                double area = circleCalc.circleCalculate(radius);
+                circleCalc.getResults().add(area);
+
+                System.out.println("enter \"remove\" to delete first result");
+                if (sc.next().equals("remove")) {
+                    circleCalc.getResults().remove(0);
+                    System.out.println("first element removed!");
+                }
+
+                System.out.println("enter \"inquiry\" to view all results");
+                if (sc.next().equals("inquiry")) {
+                    circleCalc.showResult();
+                }
             } else{
                 System.out.println("choose between \"basic\" and \"circle\"");
             }
 
             // 루프를 종료할지 선택
             System.out.println("continue? (type \"exit\" to quit)");
-            String continueQuit = sc.nextLine();
-            if (continueQuit.equals("exit")) {
-                loopingCheck = false;
-            }
-        }
+        } while(!sc.next().equals("exit"));
     }
 }
