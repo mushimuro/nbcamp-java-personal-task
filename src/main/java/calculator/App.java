@@ -32,17 +32,17 @@ public class App {
             if (removeFirst.equals("remove")) {
                 answerList.remove(0);
                 System.out.println("first answer removed");
-//                System.out.println(answerList);
             }
 
-            // answerList 프린트할지 선택
+            // 전체 결과값들 확인
             System.out.println("저장된 연산결과를 조회하시겠습니까? (inquiry 입력 시 조회)");
             String inquiry = sc.nextLine();
             if (inquiry.equals("inquiry")) {
-                for(Integer answerData : answerList) {
+                for (Integer answerData : answerList) {
                     System.out.println(answerData);
                 }
             }
+
 
             // 루프를 종료할지 선택
             System.out.println("continue? (type \"exit\" to quit)");

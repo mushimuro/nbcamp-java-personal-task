@@ -5,13 +5,14 @@ import java.util.regex.Pattern;
 import java.util.Scanner;
 
 public class Calculator {
-    ArrayList<Integer> answerList = new ArrayList<>();
+//    private ArrayList<Integer> answerList = new ArrayList<>();
     private int firstNum;
     private int secondNum;
     private char operatorUsing;
     private int result;
     private static final String OPERATION_REG = "[+\\-*/]";
     private static final String NUMBER_REG = "^[0-9]*$";
+    Scanner sc = new Scanner(System.in);
 
     public Calculator() {
     }
@@ -35,8 +36,8 @@ public class Calculator {
                 throw new ArithmeticException("operator 를 잘못 입력했습니다.");
             }
             System.out.println("결과: " + firstNum + " " + operatorUsing + " " + secondNum + " = " + result);
-            answerList.add(result);
-            System.out.println(answerList);
+//            answerList.add(result);
+//            System.out.println(answerList);
         } catch(ArithmeticException e){
             System.out.println(e.getMessage());
         }
