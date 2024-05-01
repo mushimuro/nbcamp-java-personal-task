@@ -9,23 +9,22 @@ public class App {
         boolean loopingCheck = true;
 
         while(loopingCheck) {
-            System.out.println("type first num");
-            String num1 = sc.nextLine();
-            System.out.println("type second num");
-            String num2 = sc.nextLine();
-            System.out.println("type in operator");
-            String operator = sc.nextLine();
+            System.out.println("Calculation type : \"basic\" or \"circle\"");
+            String chooseCalc = sc.nextLine();
 
-            int firstNum = Integer.parseInt(num1);
-            int secondNum = Integer.parseInt(num2);
-            char operatorChar = operator.charAt(0);
-            calculator.calculate(firstNum, secondNum, operatorChar);
-
-            // 첫번째 결과 삭제
-            calculator.removeFirstAnswer();
-
-            // 전체 결과 확인
-            calculator.showResults();
+            if (chooseCalc.equals("basic")) {
+                calculator.calculate();
+                // 첫번째 결과 삭제
+                calculator.removeBasicFirstAnswer();
+                // 전체 결과 확인
+                calculator.showResults();
+            } else if (chooseCalc.equals("circle")) {
+                calculator.calculateCircleArea();
+                calculator.removeCircleFirstAnswer();
+                calculator.showCircleAreaResults();
+            } else{
+                System.out.println("choose between \"basic\" and \"circle\"");
+            }
 
             // 루프를 종료할지 선택
             System.out.println("continue? (type \"exit\" to quit)");
