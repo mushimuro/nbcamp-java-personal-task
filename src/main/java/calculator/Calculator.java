@@ -5,14 +5,9 @@ import java.util.regex.Pattern;
 import java.util.Scanner;
 
 public class Calculator {
-//    private ArrayList<Integer> answerList = new ArrayList<>();
-//    private int firstNum;
-//    private int secondNum;
-//    private char operatorUsing;
+    private ArrayList<Integer> answerList = new ArrayList<>();
     private int result;
-//    private static final String OPERATION_REG = "[+\\-*/]";
-//    private static final String NUMBER_REG = "^[0-9]*$";
-//    Scanner sc = new Scanner(System.in);
+    Scanner sc = new Scanner(System.in);
 
     public Calculator() {
     }
@@ -36,11 +31,20 @@ public class Calculator {
                 throw new ArithmeticException("operator 를 잘못 입력했습니다.");
             }
             System.out.println("결과: " + firstNum + " " + operatorUsing + " " + secondNum + " = " + result);
-//            answerList.add(result);
-//            System.out.println(answerList);
+            answerList.add(result);
         } catch(ArithmeticException e){
             System.out.println(e.getMessage());
         }
         return result;
+    }
+
+    // 첫번째값 삭제할지 선택
+    public void removeFirstAnswer(){
+        System.out.println("가장 먼저 저장된 연산 결과를 삭제하시겠습니까? (remove 입력 시 삭제)");
+        String removeFirst = sc.nextLine();
+        if (removeFirst.equals("remove")) {
+            answerList.remove(0);
+            System.out.println("first answer removed");
+        }
     }
 }
