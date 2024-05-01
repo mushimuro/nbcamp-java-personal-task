@@ -47,4 +47,16 @@ public class Calculator {
             System.out.println("first answer removed");
         }
     }
+
+    // 전체 결과값들 확인
+    public void showResults(){
+        System.out.println("저장된 연산결과를 조회하시겠습니까? (inquiry 입력 시 조회)");
+        String inquiry = sc.nextLine();
+        if (inquiry.equals("inquiry")) {
+            for (Integer answerData : answerList) {
+                System.out.println(answerData);
+            }
+        }
+    }
+
 }

@@ -27,15 +27,8 @@ public class App {
             // 첫번째 결과 삭제
             calculator.removeFirstAnswer();
 
-            // 전체 결과값들 확인
-            System.out.println("저장된 연산결과를 조회하시겠습니까? (inquiry 입력 시 조회)");
-            String inquiry = sc.nextLine();
-            if (inquiry.equals("inquiry")) {
-                for (Integer answerData : answerList) {
-                    System.out.println(answerData);
-                }
-            }
-
+            // 전체 결과 확인
+            calculator.showResults();
 
             // 루프를 종료할지 선택
             System.out.println("continue? (type \"exit\" to quit)");
