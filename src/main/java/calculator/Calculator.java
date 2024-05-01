@@ -12,27 +12,32 @@ public class Calculator {
     }
 
     public void calculate(int firstNum, int secondNum, char operatorUsing) throws Exception{
-        try {
-            if (operatorUsing == '+') {
-                result = firstNum + secondNum;
-            } else if (operatorUsing == '-') {
-                result = firstNum - secondNum;
-            } else if (operatorUsing == '*') {
-                result = firstNum * secondNum;
-            } else if (operatorUsing == '/') {
-                // 0 으로 나눌시 예외 처리
-                if (secondNum == 0) {
-                    throw new ArithmeticException("나눗셈 연산에서 분모(두번째 정수)에 0이 입력될 수 없습니다.");
+        String chooseCalc = sc.nextLine();
+        if (chooseCalc.equals("basic")) {
+            try {
+                if (operatorUsing == '+') {
+                    result = firstNum + secondNum;
+                } else if (operatorUsing == '-') {
+                    result = firstNum - secondNum;
+                } else if (operatorUsing == '*') {
+                    result = firstNum * secondNum;
+                } else if (operatorUsing == '/') {
+                    // 0 으로 나눌시 예외 처리
+                    if (secondNum == 0) {
+                        throw new ArithmeticException("나눗셈 연산에서 분모(두번째 정수)에 0이 입력될 수 없습니다.");
+                    } else {
+                        result = firstNum / secondNum;
+                    }
                 } else {
-                    result = firstNum / secondNum;
+                    throw new ArithmeticException("operator 를 잘못 입력했습니다.");
                 }
-            } else{
-                throw new ArithmeticException("operator 를 잘못 입력했습니다.");
+                System.out.println("결과: " + firstNum + " " + operatorUsing + " " + secondNum + " = " + result);
+                answerList.add(result);
+            } catch (ArithmeticException e) {
+                System.out.println(e.getMessage());
             }
-            System.out.println("결과: " + firstNum + " " + operatorUsing + " " + secondNum + " = " + result);
-            answerList.add(result);
-        } catch(ArithmeticException e){
-            System.out.println(e.getMessage());
+        } else if (chooseCalc.equals("circle")) {
+            
         }
     }
 
