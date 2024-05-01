@@ -6,13 +6,13 @@ import java.util.Scanner;
 
 public class Calculator {
 //    private ArrayList<Integer> answerList = new ArrayList<>();
-    private int firstNum;
-    private int secondNum;
-    private char operatorUsing;
+//    private int firstNum;
+//    private int secondNum;
+//    private char operatorUsing;
     private int result;
-    private static final String OPERATION_REG = "[+\\-*/]";
-    private static final String NUMBER_REG = "^[0-9]*$";
-    Scanner sc = new Scanner(System.in);
+//    private static final String OPERATION_REG = "[+\\-*/]";
+//    private static final String NUMBER_REG = "^[0-9]*$";
+//    Scanner sc = new Scanner(System.in);
 
     public Calculator() {
     }
