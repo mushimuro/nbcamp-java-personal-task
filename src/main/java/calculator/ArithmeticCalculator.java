@@ -24,7 +24,7 @@ public class ArithmeticCalculator extends Calculator {
             case '/' -> new DivideOperator();
             case '%' -> new ModOperator();
             default -> throw new UnsupportedOperationException("operator 를 잘못 입력했습니다.");
-        }
+        };
     }
 
     @Override
