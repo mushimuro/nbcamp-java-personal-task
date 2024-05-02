@@ -5,13 +5,7 @@ import java.util.Scanner;
 public class App {
 
     public static void main(String[] args) throws Exception{
-        ArithmeticCalculator arithmeticCalc = new ArithmeticCalculator(
-                new ArrayList<>(),
-                new AddOperator(),
-                new SubtractOperator(),
-                new MultiplyOperator(),
-                new DivideOperator()
-        );
+        ArithmeticCalculator arithmeticCalc = new ArithmeticCalculator(new ArrayList<>());
         CircleCalculator circleCalc = new CircleCalculator(new ArrayList<>());
         Scanner sc = new Scanner(System.in);
 //        boolean loopingCheck = true;
